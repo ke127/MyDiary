@@ -39,7 +39,7 @@ public class DiaryRealmAdapter extends RealmRecyclerViewAdapter<Diary,
     }
 
     public DiaryRealmAdapter(@NonNull Context context,
-                             @Nullable OrderedRealmCollection<Diary> date, boolean autoUpdate){
+                             @Nullable OrderedRealmCollection<Diary> data, boolean autoUpdate){
         super(data, autoUpdate);
         this.context = context;
     }
