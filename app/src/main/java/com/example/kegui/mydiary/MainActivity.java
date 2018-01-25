@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity 
@@ -63,6 +67,19 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onAddDiarySelected() {
+        mRealm.beginTransaction();
+        Number maxId = mRealm.where(Diary.class).max("id");
+        long nextId = 0;
+        if (maxId != null) nextId = maxId.longValue() + 1;
+        Diary diary = mRealm.createObject(Diary.class, new Long(nextId));
+        diary.date = new SimpleDateFormat("MM d", Locale.US).format(new Date());
+        mRealm.commitTransaction();
 
+        InputDiaryFragment inputDiaryFragment = InputDiaryFragment.newInstnce(nextId);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.content, inputDiaryFragment, "InputDiaryFragment");
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
