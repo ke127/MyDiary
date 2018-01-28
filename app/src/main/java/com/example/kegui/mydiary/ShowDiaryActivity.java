@@ -38,7 +38,7 @@ public class ShowDiaryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, mBodyText);
-                shareIntent.setType("text/pain");
+                shareIntent.setType("text/plain");
                 startActivity(shareIntent);
             }
         });
@@ -69,11 +69,11 @@ public class ShowDiaryActivity extends AppCompatActivity {
 
             int titleColor = palette.getLightVibrantColor(Color.WHITE);
             int bodyColor = palette.getDarkMutedColor(Color.BLACK);
-            int scrimColor = palette.getMutedColor(Color.BLACK);
-            int iconColor = palette.getLightMutedColor(Color.BLACK);
+            int scrimColor = palette.getMutedColor(Color.DKGRAY);
+            int iconColor = palette.getLightMutedColor(Color.LTGRAY);
 
             layout.setExpandedTitleColor(titleColor);
-            layout.setContentScrimColor(scrimColor);;
+            layout.setContentScrimColor(scrimColor);
             scrollView.setBackgroundColor(bodyColor);
             body.setTextColor(titleColor);
             fab.setBackgroundTintList(ColorStateList.valueOf(iconColor));

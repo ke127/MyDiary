@@ -37,7 +37,7 @@ public class MyUtils {
         return bmp;
     }
 
-    public static byte[] getByteFromImage(Bitmap bmp){
+    public static byte[] getByteFromImage(Bitmap bmp) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();

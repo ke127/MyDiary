@@ -37,7 +37,7 @@ public class InputDiaryFragment extends Fragment {
     private EditText mBodyEdit;
     private ImageView mDiaryImage;
 
-    public static InputDiaryFragment newInstnce(long diaryId) {
+    public static InputDiaryFragment newInstance(long diaryId) {
         InputDiaryFragment fragment = new InputDiaryFragment();
         Bundle args = new Bundle();
         args.putLong(DIARY_ID, diaryId);
@@ -63,8 +63,7 @@ public class InputDiaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View v = inflater.inflate(R.layout.fragment_input_diary,
-               container, false);
+       View v = inflater.inflate(R.layout.fragment_input_diary, container, false);
        mTitleEdit = (EditText) v.findViewById(R.id.title);
        mBodyEdit = (EditText) v.findViewById(R.id.bodyEditText);
        mDiaryImage = (ImageView) v.findViewById(R.id.diary_photo);
@@ -177,7 +176,7 @@ public class InputDiaryFragment extends Fragment {
                                 (BitmapDrawable) mDiaryImage.getDrawable();
                         byte[] bytes = MyUtils.getByteFromImage(bitmap.getBitmap());
                         if (bytes != null && bytes.length > 0){
-                            diary.image=bytes;
+                            diary.image = bytes;
                         }
                     }
                 });

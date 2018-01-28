@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity
         long nextId = 0;
         if (maxId != null) nextId = maxId.longValue() + 1;
         Diary diary = mRealm.createObject(Diary.class, new Long(nextId));
-        diary.date = new SimpleDateFormat("MM d", Locale.US).format(new Date());
+        diary.date = new SimpleDateFormat("MMM d", Locale.US).format(new Date());
         mRealm.commitTransaction();
 
-        InputDiaryFragment inputDiaryFragment = InputDiaryFragment.newInstnce(nextId);
+        InputDiaryFragment inputDiaryFragment = InputDiaryFragment.newInstance(nextId);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.content, inputDiaryFragment, "InputDiaryFragment");
