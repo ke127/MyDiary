@@ -145,17 +145,14 @@ public class InputDiaryFragment extends Fragment {
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
         startActivityForResult(
-                Intent.createChooser(
-                        intent,
-                        getString(R.string.pick_image)
-                ),
+                Intent.createChooser(intent, getString(R.string.pick_image)),
                 REQUEST_CODE);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE && requestCode == Activity.RESULT_OK) {
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
 
             Uri uri = (data == null) ? null : data.getData();
             if (uri != null){

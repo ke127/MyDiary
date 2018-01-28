@@ -67,8 +67,8 @@ public class MyUtils {
 
 
     public static void tintMenuIcon(Context context, MenuItem item, @ColorRes int color) {
-        Drawable nomalDrawable = item.getIcon();
-        Drawable wrapDrawable = DrawableCompat.wrap(nomalDrawable);
+        Drawable normalDrawable = item.getIcon();
+        Drawable wrapDrawable = DrawableCompat.wrap(normalDrawable);
         DrawableCompat.setTint(wrapDrawable,
                 ContextCompat.getColor(context, color));
         item.setIcon(wrapDrawable);
